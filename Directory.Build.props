@@ -1,0 +1,9 @@
+<Project>
+  <PropertyGroup>
+    <SptDir>H:\SPT 4.1</SptDir>
+    <ManagedDir>$(SptDir)\EscapeFromTarkov_Data\Managed</ManagedDir>
+    <BepInExCore>$(SptDir)\BepInEx\core</BepInExCore>
+    <SptPlugins>$(SptDir)\BepInEx\plugins\spt</SptPlugins>
+  </PropertyGroup>
+  <Import Project="Directory.Build.user.props" Condition="Exists('Directory.Build.user.props')" />
+</Project>

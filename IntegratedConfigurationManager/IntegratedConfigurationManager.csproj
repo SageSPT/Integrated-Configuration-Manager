@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <AssemblyName>IntegratedConfigurationManager</AssemblyName>
+    <RootNamespace>IntegratedConfigurationManager</RootNamespace>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <Version>1.0.0</Version>
+    <Product>Integrated Configuration Manager</Product>
+    <Company>Sage</Company>
+    <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp"><HintPath>$(ManagedDir)\Assembly-CSharp.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine"><HintPath>$(ManagedDir)\UnityEngine.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.CoreModule"><HintPath>$(ManagedDir)\UnityEngine.CoreModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.UI"><HintPath>$(ManagedDir)\UnityEngine.UI.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.UIModule"><HintPath>$(ManagedDir)\UnityEngine.UIModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.TextRenderingModule"><HintPath>$(ManagedDir)\UnityEngine.TextRenderingModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.IMGUIModule"><HintPath>$(ManagedDir)\UnityEngine.IMGUIModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.InputLegacyModule"><HintPath>$(ManagedDir)\UnityEngine.InputLegacyModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="Unity.TextMeshPro"><HintPath>$(ManagedDir)\Unity.TextMeshPro.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="Comfort"><HintPath>$(ManagedDir)\Comfort.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="Comfort.Unity"><HintPath>$(ManagedDir)\Comfort.Unity.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="Sirenix.Serialization"><HintPath>$(ManagedDir)\Sirenix.Serialization.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="BepInEx"><HintPath>$(BepInExCore)\BepInEx.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="0Harmony"><HintPath>$(BepInExCore)\0Harmony.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="ConfigurationManager"><HintPath>$(SptPlugins)\ConfigurationManager\ConfigurationManager.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="spt-reflection"><HintPath>$(SptPlugins)\spt-reflection.dll</HintPath><Private>false</Private></Reference>
+  </ItemGroup>
+
+  <Target Name="CopyToGame" AfterTargets="Build" Condition="'$(Deploy)' == 'true'">
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(SptDir)\BepInEx\plugins\IntegratedConfigurationManager" />
+  </Target>
+
+</Project>
